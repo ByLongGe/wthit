@@ -31,7 +31,9 @@ platform("mojmap")
 
 //platform("bukkit")
 platform("fabric")
-platform("forge")
-platform("neo")
+// Fabric-only 26.3 build: avoid evaluating Forge/NeoForge projects
+// whose loader versions are still configured for Minecraft 26.2.
+// platform("forge")
+// platform("neo")
 platform("textile")
 //platform("quilt")
