@@ -3,6 +3,7 @@ package mcp.mobius.waila.gui.screen;
 import java.awt.*;
 import java.util.Arrays;
 import java.util.List;
+import java.nio.file.Path;
 import java.util.function.Consumer;
 
 import com.google.common.collect.ImmutableList;
