@@ -1,5 +1,6 @@
 package mcp.mobius.waila.gui.screen;
 
+import java.awt.Desktop;
 import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
@@ -55,6 +56,16 @@ public class PluginConfigScreen extends TabbedConfigScreen {
         ENTRY_TO_VALUE.put((ConfigEntry.Type<@NonNull Object>) type, (ConfigValueFunction<@NonNull Object>) function);
     }
 
+    private static void openFile(Path path) {
+        try {
+            if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.OPEN)) {
+                Desktop.getDesktop().open(path.toFile());
+            }
+        } catch (Exception e) {
+            System.err.println("WTHIT: Unable to open file " + path + ": " + e.getMessage());
+        }
+    }
+
     @Override
     public ConfigListWidget getOptions() {
         var options = new ConfigListWidget(this, minecraft, width, height, 24, height - 32, 26, PluginConfig::write);
@@ -98,7 +109,7 @@ public class PluginConfigScreen extends TabbedConfigScreen {
 
                 if (entry.getType().equals(ConfigEntry.PATH)) {
                     var button = new ButtonEntry(entryTlKey, Tl.Config.OPEN_FILE, 100, 20, b ->
-                        Util.getPlatform().openFile(((Path) entry.getDefaultValue()).toFile()));
+                        openFile((Path) entry.getDefaultValue()));
 
                     category.with(button);
                     continue;

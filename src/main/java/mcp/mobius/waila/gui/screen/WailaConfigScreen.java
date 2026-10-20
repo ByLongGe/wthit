@@ -129,9 +129,19 @@ public class WailaConfigScreen extends TabbedConfigScreen {
         return theme;
     }
 
+    private static void openFile(Path path) {
+        try {
+            if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.OPEN)) {
+                Desktop.getDesktop().open(path.toFile());
+            }
+        } catch (Exception e) {
+            System.err.println("WTHIT: Unable to open file " + path + ": " + e.getMessage());
+        }
+    }
+
     @Override
     public void extractRenderState(GuiGraphicsExtractor ctx, int mouseX, int mouseY, float partialTicks) {
-        if (InputConstants.isKeyDown(minecraft.getWindow(), InputConstants.KEY_F1)) {
+        if (InputConstants.isKeyDown(InputConstants.KEY_F1)) {
             if (!f1held) {
                 f1held = true;
                 buildPreview(previewState);
@@ -191,7 +201,7 @@ public class WailaConfigScreen extends TabbedConfigScreen {
                 val -> get().getGeneral().setRateLimit(Math.max(val, 250)),
                 InputValue.POSITIVE_INTEGER))
             .with(new ButtonEntry(Tl.Config.BLACKLIST, Tl.Config.BLACKLIST_OPEN, 100, 20, w ->
-                Util.getPlatform().openFile(Waila.BLACKLIST_CONFIG.getPath().toFile()))));
+                openFile(Waila.BLACKLIST_CONFIG.getPath()))));
 
         options.with(new CategoryEntry(Tl.Config.OVERLAY)
             .with(fpsVal = Util.make(new InputValue<>(Tl.Config.OVERLAY_FPS,
