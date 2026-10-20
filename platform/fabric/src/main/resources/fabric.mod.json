@@ -23,9 +23,6 @@
     ],
     "modmenu"       : [
       "mcp.mobius.waila.integration.modmenu.WailaModMenu"
-    ],
-    "rei_client"    : [
-      "mcp.mobius.waila.integration.reiwhycheckingforpackagename.ReiRecipeAction"
     ]
   },
   "mixins"       : [
