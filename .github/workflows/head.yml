@@ -35,11 +35,12 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           cache-read-only: ${{ github.repository != 'badasintended/wthit' }}
-      - run: ./gradlew build
+      - run: ./gradlew :fabric:build --stacktrace
         env:
           GIT_HASH: ${{ steps.vars.outputs.git_hash }}
       - uses: actions/upload-artifact@v4
         with:
-          name: wthit-${{ steps.vars.outputs.git_hash }}
-          path: "./platform/*/build/libs/**.jar"
+          name: wthit-fabric-26.3-${{ steps.vars.outputs.git_hash }}
+          path: "./platform/fabric/build/libs/*.jar"
+          if-no-files-found: error
       - run: ./gradlew --stop

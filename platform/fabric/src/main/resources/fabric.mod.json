@@ -1,72 +1,71 @@
 {
   "schemaVersion": 1,
-  "id"           : "wthit",
-  "provides"     : [
+  "id": "wthit",
+  "provides": [
     "waila"
   ],
-  "version"      : "${version}",
-  "entrypoints"  : {
-    "main"          : [
+  "version": "${version}",
+  "entrypoints": {
+    "main": [
       "mcp.mobius.waila.fabric.FabricWaila"
     ],
-    "client"        : [
+    "client": [
       "mcp.mobius.waila.fabric.FabricWailaClient"
     ],
-    "server"        : [
+    "server": [
       "mcp.mobius.waila.fabric.FabricWailaDedicatedServer"
     ],
-    "emi"           : [
+    "emi": [
       "mcp.mobius.waila.integration.emi.EmiRecipeAction"
     ],
     "jei_mod_plugin": [
       "mcp.mobius.waila.integration.jei.JeiRecipeAction"
     ],
-    "modmenu"       : [
+    "modmenu": [
       "mcp.mobius.waila.integration.modmenu.WailaModMenu"
     ],
-    "rei_client"    : [
+    "rei_client": [
       "mcp.mobius.waila.integration.reiwhycheckingforpackagename.ReiRecipeAction"
     ]
   },
-  "mixins"       : [
+  "mixins": [
     "wthit.mixins.json"
   ],
-  "name"         : "wthit",
-  "description"  : "What the hell is that?",
-  "icon"         : "wthit.png",
-  "contact"      : {
+  "name": "wthit",
+  "description": "What the hell is that?",
+  "icon": "wthit.png",
+  "contact": {
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/wthit",
-    "issues"  : "https://github.com/badasintended/wthit/issues",
-    "sources" : "https://github.com/badasintended/wthit"
+    "issues": "https://github.com/badasintended/wthit/issues",
+    "sources": "https://github.com/badasintended/wthit"
   },
-  "license"      : "CC-BY-NC-SA-4.0",
-  "authors"      : [
+  "license": "CC-BY-NC-SA-4.0",
+  "authors": [
     "deirn",
     {
-      "name"   : "Nicholas \"TehNut\" Ignoffo",
+      "name": "Nicholas \"TehNut\" Ignoffo",
       "contact": {
-        "email"   : "nick@tehnut.info",
+        "email": "nick@tehnut.info",
         "homepage": "https://tehnut.info"
       }
     },
     {
-      "name"   : "ProfMobius",
+      "name": "ProfMobius",
       "contact": {
         "homepage": "https://twitter.com/profmobius"
       }
     }
   ],
-
-  "depends"      : {
-    "fabricloader": ">=0.19.3",
-    "fabric-api"  : ">=0.155.2",
-    "minecraft"   : ">=26.2-",
-    "badpackets"  : ">=0.12-"
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "fabric-api": ">=0.161.0",
+    "minecraft": ">=26.3-",
+    "badpackets": ">=0.12-"
   },
-  "breaks"       : {
+  "breaks": {
     "roughlyenoughitems": "<9.0.462"
   },
-  "suggests"     : {
+  "suggests": {
     "modmenu": "*"
   }
 }
